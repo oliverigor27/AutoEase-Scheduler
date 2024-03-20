@@ -10,6 +10,8 @@ public record Address
         City = city;
         State = state;
         Coutry = coutry;
+
+        IsDiscount();
     }
 
     public string Zipcode { get; private set; }
@@ -18,4 +20,19 @@ public record Address
     public string City { get; private set; }
     public string State { get; private set; }
     public string Coutry { get; private set; }
+
+    public object IsDiscount()
+    {
+        if(City == "Salvador" || City == "São Paulo")
+        {
+            List<Discount> discount = new()
+            {
+                new Discount { Message = "Desconto aplicável!", Value = 5 }
+            };
+
+            return discount;
+        };
+    
+        return "Não Aplicável!";
+    }
 }
