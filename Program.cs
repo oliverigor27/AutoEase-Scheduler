@@ -1,5 +1,6 @@
 using Autoease.Domain.Interfaces;
 using Autoease.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +14,6 @@ builder.Services.AddSwaggerGen();
 // Repositories
 
 builder.Services.AddScoped<ICreateUser, CreateUser>();
-
-// Db Context
-
-builder.Services.AddDbContext<DatabaseContext>();
 
 var app = builder.Build();
 
