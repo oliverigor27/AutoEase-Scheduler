@@ -1,5 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Autoease.Domain.ValueObjects;
-public class Appointment
+
+[Owned]
+public class AppointmentDate
 {
     private DateTime _appointmentDate;
 
@@ -15,7 +19,7 @@ public class Appointment
     }
 
     // Construtor
-    public Appointment(DateTime appointmentDate)
+    public AppointmentDate(DateTime appointmentDate)
     {
         _appointmentDate = appointmentDate;
     }

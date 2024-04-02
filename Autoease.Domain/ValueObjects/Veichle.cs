@@ -1,5 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Autoease.Domain.ValueObjects;
 
+[Owned]
 public class Veichle
 {
     public Veichle(string band, int licensePlate, int year, string model)

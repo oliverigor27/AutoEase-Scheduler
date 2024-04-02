@@ -1,5 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Autoease.Domain.ValueObjects;
 
+[Owned]
 public record Address 
 {
     public Address(string zipcode, string street, int houseNumber, string city, string state, string coutry)
