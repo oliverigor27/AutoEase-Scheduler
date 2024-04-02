@@ -6,7 +6,10 @@ namespace Autoease.Domain.Aggregation;
 
 public class Appointment : BaseEntity
 {
-    public Appointment(Appointment appointment_date, ServiceType serviceType, Veichle veichle, string description, Guid garageId, Garage garage, Guid userId, User user)
+    public Appointment()
+    {   
+    }
+    public Appointment(AppointmentDate appointment_date, ServiceType serviceType, Veichle veichle, string description, Guid garageId, Garage garage, Guid userId, User user)
     {
         Appointment_date = appointment_date;
         ServiceType = serviceType;
@@ -18,7 +21,7 @@ public class Appointment : BaseEntity
         User = user;
     }
 
-    public Appointment Appointment_date { get; private set; }
+    public AppointmentDate Appointment_date { get; private set; }
     public ServiceType ServiceType { get; private set; }
     public Veichle Veichle { get; private set; }
     public string Description { get; private set; }

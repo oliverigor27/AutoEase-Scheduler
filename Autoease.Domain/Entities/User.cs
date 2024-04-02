@@ -5,7 +5,9 @@ namespace Autoease.Domain.Entities;
 public class User : BaseEntity
 {
     private readonly List<string> errors = new();
-
+    public User()
+    {
+    }
     public User(string userCPF, string username, string email, string password, string name, string lastName, Address address)
     {
         UserCPF = userCPF;

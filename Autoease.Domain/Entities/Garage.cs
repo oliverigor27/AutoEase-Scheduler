@@ -6,6 +6,9 @@ public class Garage : BaseEntity
 {
     private readonly List<string> errors = new();
 
+    public Garage()
+    {
+    }
     public Garage(string garageCNPJ, string name, Address address)
     {
         GarageCNPJ = garageCNPJ;
