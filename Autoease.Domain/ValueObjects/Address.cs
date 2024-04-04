@@ -1,6 +1,6 @@
-namespace Autoease.Domain.Entities;
+namespace Autoease.Domain.ValueObjects;
 
-public class Address
+public record Address
 {
     public string Street { get; private set; }
     public string City { get; private set; }
