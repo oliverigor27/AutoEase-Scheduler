@@ -1,12 +1,22 @@
 using Autoease.Domain.Entities;
 using Autoease.Domain.Interfaces;
+using Autoease.Infrastructure.Persistence;
 
 namespace Autoease.Application.Service.User;
 
 public class CreateUser : ICreateUser
 {
-    Task<UserEntity> ICreateUser.CreateUser(UserEntity user)
+    private readonly DatabaseContext _databaseContext;
+
+    public CreateUser(DatabaseContext databaseContext)
     {
-        throw new NotImplementedException();
+        _databaseContext = databaseContext;
+    }
+    public async Task<UserEntity> NewUser(UserEntity user)
+    {
+        _databaseContext.Users.Add(user);
+        await _databaseContext.SaveChangesAsync();
+
+        return user;
     }
 }
