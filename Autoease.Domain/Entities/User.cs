@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Autoease.Domain.ValueObjects;
 
 namespace Autoease.Domain.Entities;
@@ -14,7 +15,7 @@ public class UserEntity
     public string Password { get; private set; }
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
-    public Address Address { get; set; }
+    public Address Address { get; private set; }
 
     
     protected UserEntity() {}
