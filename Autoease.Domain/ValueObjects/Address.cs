@@ -1,5 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Autoease.Domain.ValueObjects;
 
+[Owned]
 public record Address
 {
     public string Street { get; private set; }
