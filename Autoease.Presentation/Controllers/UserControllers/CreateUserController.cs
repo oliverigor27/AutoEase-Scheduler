@@ -1,26 +1,27 @@
 using Autoease.Domain.Entities;
 using Autoease.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
-
-namespace Autoease.Presentation.Controllers.UserController;
-
-[ApiController]
-[Route("[controller]")]
-public class CreateUserController : ControllerBase
+namespace Autoease.Presentation.Controllers
 {
-    private ICreateUser _createUser;
-
-    public CreateUserController(ICreateUser createUser)
+    [ApiController]
+    [Route("[controller]")]
+    public class CreateUserController : ControllerBase
     {
-        _createUser = createUser;
-    }
+        private readonly ICreateUser _createUser;
 
-    [HttpPost]
-    public async Task<ActionResult<string>> createUser(UserEntity user)
-    {
-        var data = _createUser.CreateUser(user);
+        public CreateUserController(ICreateUser createUser)
+        {
+            _createUser = createUser;
+        }
 
-        return Ok("user");
+        [HttpPost]
+        public async Task<ActionResult<string>> CreateUser(UserEntity user)
+        {
+            var data = await _createUser.NewUser(user);
+
+            return Ok("User was created!");
+        }
     }
 }
