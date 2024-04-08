@@ -1,3 +1,5 @@
+using Autoease.Application.Service.User;
+using Autoease.Domain.Interfaces;
 using Autoease.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Repositories
+builder.Services.AddScoped<ICreateUser, CreateUser>();
 
 var app = builder.Build();
 
