@@ -4,5 +4,5 @@ namespace Autoease.Domain.Interfaces;
 
 public interface ICreateUser
 {
-    Task<UserEntity> CreateUser(UserEntity user);
+    Task<UserEntity> NewUser(UserEntity user);
 }
