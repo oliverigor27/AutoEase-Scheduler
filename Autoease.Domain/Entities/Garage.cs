@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Autoease.Domain.ValueObjects;
 
 namespace Autoease.Domain.Entities;
