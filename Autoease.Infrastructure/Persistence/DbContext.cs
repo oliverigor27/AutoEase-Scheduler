@@ -1,5 +1,6 @@
 using Autoease.Domain.Aggregation;
 using Autoease.Domain.Entities;
+using Autoease.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace Autoease.Infrastructure.Persistence;
@@ -21,13 +22,13 @@ public class DatabaseContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Appointment>()
-            .HasOne(a => a.Veichle);
+            .OwnsOne(a => a.Veichle);
         
         modelBuilder.Entity<UserEntity>()
-            .HasOne(u => u.Address);
+            .OwnsOne(u => u.Address);
 
         modelBuilder.Entity<GarageEntity>()
-            .HasOne(g => g.Address);
+            .OwnsOne(g => g.Address);
     }
 
     public DbSet<UserEntity> Users { get; set; }
