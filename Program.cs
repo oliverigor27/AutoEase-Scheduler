@@ -15,6 +15,12 @@ builder.Services.AddSwaggerGen();
 // Repositories
 builder.Services.AddScoped<ICreateUser, CreateUser>();
 
+// Database context:
+
+builder.Services.AddDbContext<DatabaseContext>(options => 
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DatabaseContext"))
+);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
