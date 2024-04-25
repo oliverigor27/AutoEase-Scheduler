@@ -12,9 +12,22 @@ public class CreateUser : ICreateUser
     {
         _databaseContext = databaseContext;
     }
+
     public async Task<UserEntity> NewUser(UserEntity user)
     {
-        _databaseContext.Users.Add(user);
+
+        UserEntity newUser = new 
+        (
+            user.UserIdCard,
+            user.Username,
+            user.Email,
+            user.Password,
+            user.FirstName,
+            user.LastName,
+            user.Address
+        );
+
+        _databaseContext.Users.Add(newUser);
         await _databaseContext.SaveChangesAsync();
 
         return user;
