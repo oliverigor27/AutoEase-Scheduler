@@ -13,7 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Repositories
-builder.Services.AddScoped<ICreateUser, CreateUser>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Database context:
 
