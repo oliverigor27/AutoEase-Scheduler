@@ -9,17 +9,17 @@ namespace Autoease.Presentation.Controllers
     [Route("[controller]")]
     public class CreateUserController : ControllerBase
     {
-        private readonly ICreateUser _createUser;
+        private readonly IUserService _userService;
 
-        public CreateUserController(ICreateUser createUser)
+        public CreateUserController(IUserService userService)
         {
-            _createUser = createUser;
+            _userService = userService;
         }
 
         [HttpPost]
         public async Task<ActionResult<string>> CreateUser(UserEntity user)
         {
-            var data = await _createUser.NewUser(user);
+            var data = await _userService.NewUser(user);
 
             return Ok("User was created!");
         }
