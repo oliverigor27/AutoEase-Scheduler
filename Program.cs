@@ -1,3 +1,4 @@
+using Autoease.Application.Service.Auth;
 using Autoease.Application.Service.User;
 using Autoease.Domain.Interfaces;
 using Autoease.Infrastructure.Persistence;
@@ -14,6 +15,8 @@ builder.Services.AddSwaggerGen();
 
 // Repositories
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+
 
 // Database context:
 
