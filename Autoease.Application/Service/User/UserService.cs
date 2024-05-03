@@ -4,11 +4,11 @@ using Autoease.Infrastructure.Persistence;
 
 namespace Autoease.Application.Service.User;
 
-public class CreateUser : ICreateUser
+public class UserService : IUserService
 {
     private readonly DatabaseContext _databaseContext;
 
-    public CreateUser(DatabaseContext databaseContext)
+    public UserService(DatabaseContext databaseContext)
     {
         _databaseContext = databaseContext;
     }
@@ -21,7 +21,7 @@ public class CreateUser : ICreateUser
             user.UserIdCard,
             user.Username,
             user.Email,
-            user.Password,
+            password: BCrypt.Net.BCrypt.HashPassword(user.Password),
             user.FirstName,
             user.LastName,
             user.Address
