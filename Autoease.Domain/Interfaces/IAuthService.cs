@@ -4,5 +4,5 @@ namespace Autoease.Domain.Interfaces;
 
 public interface IAuthService
 {
-    Task<bool> SignIn(AuthDto login);
+    Task<string> SignIn(AuthDto login);
 }
