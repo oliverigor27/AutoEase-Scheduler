@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Autoease.Domain.Dto;
 using Autoease.Domain.Interfaces;
+using Autoease.Infrastructure.Persistence;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Autoease.Application.Service.Auth;
@@ -10,10 +11,12 @@ namespace Autoease.Application.Service.Auth;
 public class AuthService : IAuthService
 {
     private readonly IConfiguration _configuration;
+    private readonly DatabaseContext _databaseContext;
 
-    public AuthService(IConfiguration configuration)
+    public AuthService(IConfiguration configuration, DatabaseContext databaseContext)
     {
         _configuration = configuration;
+        _databaseContext = databaseContext;
     }
 
     private string CreateToken(AuthDto user)
@@ -42,8 +45,19 @@ public class AuthService : IAuthService
         return jwt;
     }
 
-    public Task<bool> SignIn(AuthDto login)
+    public async Task<string> SignIn(AuthDto login)
     {
-        throw new NotImplementedException();
+        var user = await _databaseContext.Users.FindAsync(login.Email);
+
+        var password = BCrypt.Net.BCrypt.Verify(user.Password, login.Password);
+
+        if(user.Email != login.Email || !password)
+        {
+            return "Cannot be login in platform!";
+        }
+
+        string token = CreateToken(login);
+
+        return token;
     }
 }
