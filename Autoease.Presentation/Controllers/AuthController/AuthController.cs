@@ -1,15 +1,25 @@
+using Autoease.Domain.Dto;
+using Autoease.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Autoease.Presentation.Controllers.AuthController;
 
 [ApiController]
 [Route("[controller]")]
-public class AuthController
+public class AuthController : ControllerBase
 {
+    private readonly IAuthService _authService;
+
+    public AuthController(IAuthService authService)
+    {
+        _authService = authService;
+    }
 
     [HttpPost]
-    public ActionResult<string> signIn()
+    public async Task<ActionResult<string>> SignIn(AuthDto login)
     {
-        return "Retorno!";
+        string result = await _authService.SignIn(login);
+
+        return Ok(result);
     }
 }
