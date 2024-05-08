@@ -4,6 +4,7 @@ using System.Text;
 using Autoease.Domain.Dto;
 using Autoease.Domain.Interfaces;
 using Autoease.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Autoease.Application.Service.Auth;
@@ -47,17 +48,18 @@ public class AuthService : IAuthService
 
     public async Task<string> SignIn(AuthDto login)
     {
-        var user = await _databaseContext.Users.FindAsync(login.Email);
+        var user = await _databaseContext.Users.FirstOrDefaultAsync(u => u.Email == login.Email);
 
-        var password = BCrypt.Net.BCrypt.Verify(user.Password, login.Password);
+        var passwordMatches = BCrypt.Net.BCrypt.Verify(login.Password, user.Password);
 
-        if(user.Email != login.Email || !password)
+        if(user == null || !passwordMatches)
         {
-            return "Cannot be login in platform!";
+            return "Incorrect password!";
         }
 
         string token = CreateToken(login);
 
         return token;
     }
+
 }
