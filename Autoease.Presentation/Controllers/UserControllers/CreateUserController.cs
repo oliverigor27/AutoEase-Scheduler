@@ -3,7 +3,7 @@ using Autoease.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace Autoease.Presentation.Controllers
+namespace Autoease.Presentation.Controllers.UserControllers
 {
     [ApiController]
     [Route("[controller]")]
