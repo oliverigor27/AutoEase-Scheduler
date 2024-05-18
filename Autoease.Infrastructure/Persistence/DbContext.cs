@@ -16,9 +16,6 @@ public class DatabaseContext : DbContext
     {
         modelBuilder.Entity<Appointment>()
             .OwnsOne(a => a.Veichle);
-        
-        modelBuilder.Entity<UserEntity>()
-            .OwnsOne(u => u.Address);
 
         modelBuilder.Entity<GarageEntity>()
             .OwnsOne(g => g.Address);
