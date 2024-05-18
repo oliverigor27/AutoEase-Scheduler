@@ -4,5 +4,5 @@ namespace Autoease.Domain.Interfaces;
 
 public interface IUserService
 {
-    Task<UserEntity> NewUser(UserEntity user);
+    Task<bool> NewUser(UserEntity user);
 }
