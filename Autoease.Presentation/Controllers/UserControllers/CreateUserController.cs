@@ -19,9 +19,20 @@ namespace Autoease.Presentation.Controllers.UserControllers
         [HttpPost]
         public async Task<ActionResult<string>> CreateUser(UserEntity user)
         {
+            if (!user.IsValid())
+            {
+                return BadRequest(user.GetErrors());
+            }
+
             var data = await _userService.NewUser(user);
+
+            if (!data)
+            {
+                return BadRequest("Failed to create user.");
+            }
 
             return Ok("User was created!");
         }
+
     }
 }
