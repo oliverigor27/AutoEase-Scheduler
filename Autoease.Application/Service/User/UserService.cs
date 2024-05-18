@@ -13,7 +13,7 @@ public class UserService : IUserService
         _databaseContext = databaseContext;
     }
 
-    public async Task<UserEntity> NewUser(UserEntity user)
+    public async Task<bool> NewUser(UserEntity user)
     {
 
         UserEntity newUser = new 
@@ -24,12 +24,14 @@ public class UserService : IUserService
             password: BCrypt.Net.BCrypt.HashPassword(user.Password),
             user.FirstName,
             user.LastName,
-            user.Address
+            user.Role
         );
+
+        Console.WriteLine(newUser.GetErrors());
 
         _databaseContext.Users.Add(newUser);
         await _databaseContext.SaveChangesAsync();
 
-        return user;
+        return true;
     }
 }
