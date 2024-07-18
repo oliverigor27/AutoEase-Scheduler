@@ -19,9 +19,4 @@ public record Address
         Country = country;
         PostalCode = postalCode;
     }    
-    
-    protected Address()
-    {
-        
-    }
 }
