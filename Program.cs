@@ -1,6 +1,7 @@
 using Autoease.Application.Service.Auth;
 using Autoease.Application.Service.User;
 using Autoease.Domain.Interfaces;
+using Autoease.Infrastructure.Claims;
 using Autoease.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +17,7 @@ builder.Services.AddSwaggerGen();
 // Repositories
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
-
+builder.Services.AddTransient<ClaimsService>();
 
 // Database context:
 
