@@ -11,4 +11,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Autoease.Data\Autoease.Data.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\User\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Autoease.Domain\Autoease.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

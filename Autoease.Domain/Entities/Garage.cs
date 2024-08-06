@@ -2,7 +2,7 @@ using Autoease.Domain.ValueObjects;
 
 namespace Autoease.Domain.Entities;
 
-public class GarageEntity : BaseEntity
+public sealed class GarageEntity : BaseEntity
 {
     protected GarageEntity() {}
 

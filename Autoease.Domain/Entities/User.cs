@@ -2,7 +2,7 @@ using Autoease.Domain.ValueObjects;
 
 namespace Autoease.Domain.Entities;
 
-public class UserEntity : BaseEntity
+public sealed class UserEntity : BaseEntity
 {
     public UserEntity() {}
 
@@ -25,7 +25,6 @@ public class UserEntity : BaseEntity
         Address = address;
     }
 
-    private readonly List<string> errors = new List<string>();
     public string UserIdCard { get; private set; }
     public string Username { get; private set; }
     public string Email { get; private set; }

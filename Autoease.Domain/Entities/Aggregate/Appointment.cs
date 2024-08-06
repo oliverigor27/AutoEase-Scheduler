@@ -2,7 +2,7 @@ using Autoease.Domain.ValueObjects;
 
 namespace Autoease.Domain.Entities.Aggregate;
 
-public class Appointment : BaseEntity
+public sealed class Appointment : BaseEntity
 {
     public Appointment(
         DateTime dateAppoinment, 

@@ -1,6 +1,6 @@
 namespace Autoease.Domain.Entities.Aggregate;
 
-public class Veichle : BaseEntity
+public sealed class Veichle : BaseEntity
 {
     public Veichle(string model, string plate, string color)
     {
