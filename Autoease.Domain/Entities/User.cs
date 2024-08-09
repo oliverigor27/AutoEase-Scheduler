@@ -25,11 +25,11 @@ public sealed class UserEntity : BaseEntity
         Address = address;
     }
 
-    public string UserIdCard { get; private set; }
-    public string Username { get; private set; }
-    public string Email { get; private set; }
-    public string Password { get; private set; }
-    public string FirstName { get; private set; }
-    public string LastName { get; private set; }
-    public Address Address { get; private set; }
+    public required string UserIdCard { get; set; }
+    public required string Username { get;  set; }
+    public required string Email { get; set; }
+    public required string Password { get; set; }
+    public required string FirstName { get; set; }
+    public required string LastName { get; set; }
+    public required Address Address { get; set; }
 }
