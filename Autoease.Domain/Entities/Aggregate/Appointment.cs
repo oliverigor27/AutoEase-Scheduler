@@ -4,7 +4,7 @@ namespace Autoease.Domain.Entities.Aggregate;
 
 public sealed class Appointment : BaseEntity
 {
-    public Appointment(
+    internal Appointment(
         DateTime dateAppoinment, 
         Veichle veichle, 
         ICollection<Services> 
