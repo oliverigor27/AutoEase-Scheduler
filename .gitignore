@@ -1,2 +1,5 @@
+# Ignora as pastas bin e obj em todos os subdiretórios
 **/bin/
 **/obj/
+/Autoease.Api/obj
+/Autoease.Data/obj
