@@ -10,7 +10,7 @@ public class GarageEntityConfiguration : IEntityTypeConfiguration<GarageEntity>
     public void Configure(EntityTypeBuilder<GarageEntity> builder)
     {
         builder.HasKey(garage => garage.Id)
-            .HasName("id");
+            .HasName("garage_id");
         
         builder.Property(garage => garage.GarageRegister)
             .HasColumnName("garage_register")
@@ -22,15 +22,15 @@ public class GarageEntityConfiguration : IEntityTypeConfiguration<GarageEntity>
             .IsRequired();
 
         builder.Property(garage => garage.Email)
-            .HasColumnName("email")
+            .HasColumnName("garage_email")
             .IsRequired();
         
         builder.Property(garage => garage.Password)
-            .HasColumnName("password")
+            .HasColumnName("garage_password")
             .IsRequired();
 
         builder.Property(garage => garage.Phone)
-            .HasColumnName("phone")
+            .HasColumnName("garage_phone")
             .IsRequired();
 
         builder.Property(garage => garage.OpenTime)

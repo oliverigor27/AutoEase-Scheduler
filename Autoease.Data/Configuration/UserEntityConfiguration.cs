@@ -9,39 +9,38 @@ public class UserEntityConfiguration : IEntityTypeConfiguration<UserEntity>
     public void Configure(EntityTypeBuilder<UserEntity> builder)
     {
         builder.HasKey(user => user.Id)
-            .HasName("id");
+            .HasName("user_id");
 
         builder.Property(user => user.UserIdCard)
             .HasColumnName("user_id_card")
             .IsRequired();
 
         builder.Property(user => user.Username)
-            .HasColumnName("username")
+            .HasColumnName("user_username")
             .IsRequired();
 
         builder.Property(user => user.Email)
-            .HasColumnName("email")
+            .HasColumnName("user_email")
             .IsRequired();
 
         builder.Property(user => user.Password)
-            .HasColumnName("password")
+            .HasColumnName("user_password")
             .IsRequired();
 
         builder.Property(user => user.FirstName)
-            .HasColumnName("first_name")
+            .HasColumnName("user_first_name")
             .IsRequired();
 
         builder.Property(user => user.LastName)
-            .HasColumnName("last_name")
+            .HasColumnName("user_last_name")
             .IsRequired();
 
         builder.Property(user => user.Address)
-            .HasColumnName("address")
+            .HasColumnName("user_address")
             .IsRequired();
         
         builder.Property(user => user.Created_At)
             .HasColumnName("created_at")
             .IsRequired();
-    
     }
 }
