@@ -4,14 +4,14 @@ namespace Autoease.Domain.Entities;
 
 public sealed class UserEntity : BaseEntity
 {
-    public UserEntity() {}
+    private UserEntity() {}
 
     public UserEntity(
         string userIdCard, 
         string username, 
         string email, 
-        string password, 
-        string firstName, 
+        string password,
+        string firstName,
         string lastName,
         Address address
     )
