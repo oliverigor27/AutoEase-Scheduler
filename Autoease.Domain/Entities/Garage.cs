@@ -15,7 +15,8 @@ public sealed class GarageEntity : BaseEntity
         string phone, 
         DateTime openTime,
         DateTime closeTime, 
-        List<Services> services)
+        List<Services> services
+    )
     {
         GarageRegister = garageRegister;
         GarageName = garageName;
@@ -36,10 +37,12 @@ public sealed class GarageEntity : BaseEntity
     public required string Phone { get; set; }
     public required DateTime OpenTime { get; set; }
     public required DateTime CloseTime { get; set; }
-    public required List<Services> Services { get; set; }
+    public required ICollection<Services> Services { get; set; }
 
     public void AddServices(Services service)
-        => Services.Add(service);
+    {   
+        Services.Add(service);
+    }
 
     public void RemoveService(Services service)
         => Services.Remove(service);
