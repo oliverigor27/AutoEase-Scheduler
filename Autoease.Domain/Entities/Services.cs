@@ -12,5 +12,4 @@ public sealed class Services : BaseEntity
 
     public required string Description { get; set; }
     public required int Price { get; set; }
-    public GarageEntity? Garage { get; set; }
 }
