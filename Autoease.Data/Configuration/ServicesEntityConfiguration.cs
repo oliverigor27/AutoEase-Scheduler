@@ -22,5 +22,9 @@ public class ServicesEntityConfiguration : IEntityTypeConfiguration<Services>
         builder.Property(s => s.Created_At)
             .HasColumnName("created_at")
             .IsRequired();
+
+        builder.Property<GarageEntity>("Id")
+            .HasColumnName("garage_id")
+            .IsRequired();
     }
 }
