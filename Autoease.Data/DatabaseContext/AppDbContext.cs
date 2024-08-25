@@ -19,6 +19,12 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
         new ServicesEntityConfiguration()
             .Configure(modelBuilder.Entity<Services>());
+
+        new AppointmentEntityConfiguration()
+            .Configure(modelBuilder.Entity<Appointment>());
+
+        new VeichleEntityConfiguration()
+            .Configure(modelBuilder.Entity<Veichle>());
     }
 
     public DbSet<UserEntity> Users { get; set; }
