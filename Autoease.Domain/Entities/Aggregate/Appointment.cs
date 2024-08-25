@@ -1,25 +1,20 @@
-using Autoease.Domain.ValueObjects;
-
 namespace Autoease.Domain.Entities.Aggregate;
 
 public sealed class Appointment : BaseEntity
 {
-    internal Appointment(
-        DateTime dateAppoinment, 
-        Veichle veichle, 
-        ICollection<Services> 
-        services, 
-        GarageEntity garage
+    public Appointment(
+        DateTime appointmentDate, 
+        string description, 
+        string typeOfService
     )
     {
-        DateAppoinment = dateAppoinment;
-        Veichle = veichle;
-        Services = services;
-        Garage = garage;
+        AppointmentDate = appointmentDate;
+        Description = description;
+        TypeOfService = typeOfService;
     }
 
-    public DateTime DateAppoinment { get; private set; }
-    public Veichle Veichle { get; private set; }
-    public ICollection<Services> Services { get; private set; }
-    public GarageEntity Garage { get; private set; }
+    public required DateTime AppointmentDate { get; set; }
+    public required string Description { get; set; }
+    public required string TypeOfService { get; set; }   
+
 }
