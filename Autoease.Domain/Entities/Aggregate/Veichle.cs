@@ -1,7 +1,11 @@
+using Autoease.Domain.Entities.SeedWork;
+
 namespace Autoease.Domain.Entities.Aggregate;
 
 public sealed class Veichle : BaseEntity
 {
+    private Veichle() {}
+
     public Veichle(
         string model, 
         string plate, 
@@ -15,8 +19,8 @@ public sealed class Veichle : BaseEntity
         Year = year;
     }
 
-    public required string Model { get; set; }
-    public required string Plate { get; set; }
-    public required string Color { get; set; }
-    public required DateTime Year { get; set; }
+    public string Model { get; set; } = null!;
+    public string Plate { get; set; } = null!;
+    public string Color { get; set; } = null!;
+    public DateTime Year { get; set; }
 }

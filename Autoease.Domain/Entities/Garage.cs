@@ -1,3 +1,5 @@
+using Autoease.Domain.Entities.SeedWork;
+using Autoease.Domain.Enum;
 using Autoease.Domain.ValueObjects;
 
 namespace Autoease.Domain.Entities;
@@ -11,11 +13,12 @@ public sealed class GarageEntity : BaseEntity
         string garageName, 
         Address address, 
         string email,
-        string password, 
+        string password,
+        string description,
         string phone, 
         DateTime openTime,
-        DateTime closeTime, 
-        List<Services> services
+        DateTime closeTime,
+        ServicesCategories servicesCategories
     )
     {
         GarageRegister = garageRegister;
@@ -23,27 +26,21 @@ public sealed class GarageEntity : BaseEntity
         Address = address;
         Email = email;
         Password = password;
+        Description = description;
         Phone = phone;
         OpenTime = openTime;
         CloseTime = closeTime;
-        Services = services;
+        ServicesCategories = servicesCategories;
     }
 
-    public required string GarageRegister { get; set; }
-    public required string GarageName { get; set; }
-    public required Address Address { get; set; }
-    public required string Email { get; set; }
-    public required string Password { get; set; }
-    public required string Phone { get; set; }
-    public required DateTime OpenTime { get; set; }
-    public required DateTime CloseTime { get; set; }
-    public required ICollection<Services> Services { get; set; }
-
-    public void AddServices(Services service)
-    {   
-        Services.Add(service);
-    }
-
-    public void RemoveService(Services service)
-        => Services.Remove(service);
+    public string GarageRegister { get; set; } = null!;
+    public string GarageName { get; set; } = null!;
+    public Address Address { get; set; } = null!;
+    public string Email { get; set; } = null!;
+    public string Password { get; set; } = null!;
+    public string Phone { get; set; } = null!;
+    public string Description { get; set; } = null!;
+    public DateTime OpenTime { get; set; }
+    public DateTime CloseTime { get; set; }
+    public ServicesCategories ServicesCategories { get; set; }
 }

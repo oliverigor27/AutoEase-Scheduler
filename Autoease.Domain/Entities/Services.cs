@@ -1,3 +1,5 @@
+using Autoease.Domain.Entities.SeedWork;
+
 namespace Autoease.Domain.Entities;
 
 public sealed class Services : BaseEntity
@@ -10,6 +12,6 @@ public sealed class Services : BaseEntity
         Price = price;
     }
 
-    public required string Description { get; set; }
-    public required int Price { get; set; }
+    public string Description { get; set; } = null!;
+    public decimal Price { get; set; }
 }

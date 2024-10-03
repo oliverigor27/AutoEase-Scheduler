@@ -1,7 +1,11 @@
+using Autoease.Domain.Entities.SeedWork;
+
 namespace Autoease.Domain.Entities.Aggregate;
 
 public sealed class Appointment : BaseEntity
 {
+    private Appointment() {}
+
     public Appointment(
         DateTime appointmentDate, 
         string description, 
@@ -13,8 +17,22 @@ public sealed class Appointment : BaseEntity
         TypeOfService = typeOfService;
     }
 
-    public required DateTime AppointmentDate { get; set; }
-    public required string Description { get; set; }
-    public required string TypeOfService { get; set; }   
+    public DateTime AppointmentDate { get; private set; }
+    public string Description { get; private set; } = null!;
+    public string TypeOfService { get; private set; } = null!;
+    public Veichle Veichle { get; private set; } = null!;
+    public decimal? Budget { get; private set; }
 
+    public void SetBudget(Veichle veichle, decimal budget)
+    {
+        decimal newBudget = 0;
+
+        if(budget is not 0)
+            newBudget = veichle.Year.Year > 2020 ? budget - (0.30m * budget) : 0;
+
+        Budget = newBudget;
+    }
+
+    public void SetVeichle(Veichle veichle)
+       => Veichle = veichle;
 }

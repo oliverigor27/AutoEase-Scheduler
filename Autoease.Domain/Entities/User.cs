@@ -1,3 +1,4 @@
+using Autoease.Domain.Entities.SeedWork;
 using Autoease.Domain.ValueObjects;
 
 namespace Autoease.Domain.Entities;
@@ -25,11 +26,11 @@ public sealed class UserEntity : BaseEntity
         Address = address;
     }
 
-    public required string UserIdCard { get; set; }
-    public required string Username { get;  set; }
-    public required string Email { get; set; }
-    public required string Password { get; set; }
-    public required string FirstName { get; set; }
-    public required string LastName { get; set; }
-    public required Address Address { get; set; }
+    public string UserIdCard { get; set; } = null!;
+    public string Username { get;  set; } = null!;
+    public string Email { get; set; } = null!;
+    public string Password { get; set; } = null!;
+    public string FirstName { get; set; } = null!;
+    public string LastName { get; set; } = null!;
+    public Address Address { get; set; } = null!;
 }
