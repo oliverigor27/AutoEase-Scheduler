@@ -17,9 +17,6 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         new GarageEntityConfiguration()
             .Configure(modelBuilder.Entity<GarageEntity>().ToTable("Garage"));
 
-        new ServicesEntityConfiguration()
-            .Configure(modelBuilder.Entity<Services>());
-
         new AppointmentEntityConfiguration()
             .Configure(modelBuilder.Entity<Appointment>());
 
@@ -31,5 +28,4 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<GarageEntity> Garages { get; set; }
     public DbSet<Appointment> Appointments { get; set; }
     public DbSet<Veichle> Veichles { get; set; }
-    public DbSet<Services> Services { get; set; }
 }
