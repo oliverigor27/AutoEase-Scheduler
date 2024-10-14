@@ -36,7 +36,5 @@ public sealed class UserEntity : BaseEntity, IAggregateRoot
     public ICollection<Veichle> Veichle { get; set; } = null!;
 
     public void SetVeichle(Veichle veichle)
-    {
-        Veichle.Add(veichle);
-    }
+        => Veichle.Add(veichle);
 }
