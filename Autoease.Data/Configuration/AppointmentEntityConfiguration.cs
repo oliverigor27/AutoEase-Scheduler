@@ -27,17 +27,5 @@ public class AppointmentEntityConfiguration : IEntityTypeConfiguration<Appointme
         builder.Property(a => a.Created_At)
             .HasColumnName("created_at")
             .IsRequired();
-
-        builder.Property<GarageEntity>("Id")
-            .HasColumnName("garage_id")
-            .IsRequired();
-
-        builder.Property<UserEntity>("Id")
-            .HasColumnName("user_id")
-            .IsRequired();
-
-        builder.Property<Veichle>("Id")
-            .HasColumnName("veichle_id")
-            .IsRequired();
     }
 }

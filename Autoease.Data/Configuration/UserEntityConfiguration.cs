@@ -1,4 +1,4 @@
-using Autoease.Domain.Entities;
+using Autoease.Domain.Entities.Aggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -42,5 +42,13 @@ public class UserEntityConfiguration : IEntityTypeConfiguration<UserEntity>
         builder.Property(user => user.Created_At)
             .HasColumnName("created_at")
             .IsRequired();
+
+        builder.HasMany<Veichle>()
+            .WithOne()
+            .HasForeignKey();
+
+        builder.HasMany<Appointment>()
+            .WithOne()
+            .HasForeignKey();
     }
 }
