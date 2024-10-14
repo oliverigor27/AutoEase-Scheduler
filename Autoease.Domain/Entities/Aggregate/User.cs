@@ -1,9 +1,9 @@
 using Autoease.Domain.Entities.SeedWork;
 using Autoease.Domain.ValueObjects;
 
-namespace Autoease.Domain.Entities;
+namespace Autoease.Domain.Entities.Aggregate;
 
-public sealed class UserEntity : BaseEntity
+public sealed class UserEntity : BaseEntity, IAggregateRoot
 {
     private UserEntity() {}
 
@@ -11,9 +11,9 @@ public sealed class UserEntity : BaseEntity
         string userIdCard, 
         string username, 
         string email, 
-        string password,
-        string firstName,
-        string lastName,
+        string password, 
+        string firstName, 
+        string lastName, 
         Address address
     )
     {
@@ -33,4 +33,10 @@ public sealed class UserEntity : BaseEntity
     public string FirstName { get; set; } = null!;
     public string LastName { get; set; } = null!;
     public Address Address { get; set; } = null!;
+    public ICollection<Veichle> Veichle { get; set; } = null!;
+
+    public void SetVeichle(Veichle veichle)
+    {
+        Veichle.Add(veichle);
+    }
 }
