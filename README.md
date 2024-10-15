@@ -1,6 +1,8 @@
 # Autoease Scheduler
 
-<img align="center" src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white"> <img align="center" src="https://img.shields.io/badge/ASP.NET%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white"> <img align="center" src="https://img.shields.io/badge/Entity%20Framework-512BD4?style=for-the-badge&logo=entity-framework&logoColor=white"> <img align="center" src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"> <img align="center" src="https://img.shields.io/badge/MediatR-32CD32?style=for-the-badge&logo=mediatr&logoColor=white"> <img align="center" src="https://img.shields.io/badge/CQRS-FF4500?style=for-the-badge&logo=cqrs&logoColor=white"> <img align="center" src="https://img.shields.io/badge/SOLID%20Principles-FF7F50?style=for-the-badge&logo=solid&logoColor=white">
+![.NET Core](https://img.shields.io/badge/.NET-8-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 
 **Autoease Scheduler** é uma aplicação backend desenvolvida para gerenciar e agendar reparos automotivos de forma eficiente. A aplicação fornece uma solução robusta para oficinas e empresas do setor automotivo que precisam organizar e otimizar seus serviços de manutenção e reparo.
 
