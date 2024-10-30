@@ -1,3 +1,4 @@
+using Autoease.Api.Extensions;
 using Autoease.Data.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+
+builder.AddAutoeaseServices();
 
 builder.Services.Configure<AppDbContext>(
     builder.Configuration.GetSection("WebApiDatabase")
