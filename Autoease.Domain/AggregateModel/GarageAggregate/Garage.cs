@@ -1,4 +1,4 @@
-using Autoease.Domain.AggregateModel.SeedWork;
+using Autoease.Domain.SeedWork;
 using Autoease.Domain.Enum;
 
 namespace Autoease.Domain.AggregateModel.GarageAggregate;

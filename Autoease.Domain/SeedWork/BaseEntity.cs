@@ -1,4 +1,4 @@
-namespace Autoease.Domain.AggregateModel.SeedWork;
+namespace Autoease.Domain.SeedWork;
 
 public class BaseEntity
 {

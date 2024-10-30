@@ -1,4 +1,4 @@
-using Autoease.Domain.AggregateModel.SeedWork;
+using Autoease.Domain.SeedWork;
 
 namespace Autoease.Domain.AggregateModel.UserAggregate;
 
