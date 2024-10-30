@@ -28,6 +28,8 @@
 
 ## Arquitetura do Projeto
 
+![Arquitetura do Projeto](https://github.com/oliverigor27/oliverigor27/blob/main/Images/Autoease-Arch.png)
+
 A aplicação segue uma arquitetura N-Camadas para uma melhor organização e separação de responsabilidades. As camadas incluem:
 
 1. **Apresentação (API)**: Ponto de entrada para a aplicação, lidando com solicitações HTTP.
