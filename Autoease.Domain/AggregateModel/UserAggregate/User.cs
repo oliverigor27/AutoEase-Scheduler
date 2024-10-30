@@ -1,7 +1,6 @@
-using Autoease.Domain.Entities.SeedWork;
-using Autoease.Domain.ValueObjects;
+using Autoease.Domain.AggregateModel.SeedWork;
 
-namespace Autoease.Domain.Entities.Aggregate;
+namespace Autoease.Domain.AggregateModel.UserAggregate;
 
 public sealed class UserEntity : BaseEntity, IAggregateRoot
 {
@@ -35,6 +34,6 @@ public sealed class UserEntity : BaseEntity, IAggregateRoot
     public Address Address { get; set; } = null!;
     public ICollection<Veichle> Veichle { get; set; } = null!;
 
-    public void SetVeichle(Veichle veichle)
+    internal void SetVeichle(Veichle veichle)
         => Veichle.Add(veichle);
 }

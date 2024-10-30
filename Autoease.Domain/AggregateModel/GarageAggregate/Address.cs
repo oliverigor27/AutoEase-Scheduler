@@ -1,5 +1,4 @@
-namespace Autoease.Domain.ValueObjects;
-
+namespace Autoease.Domain.AggregateModel.GarageAggregate;
 
 public record Address
 {

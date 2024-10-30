@@ -1,4 +1,4 @@
-using Autoease.Domain.Entities;
+using Autoease.Domain.AggregateModel.UserAggregate;
 
 namespace Autoease.Domain.Interfaces;
 

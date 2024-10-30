@@ -1,4 +1,4 @@
-using Autoease.Domain.Entities.Aggregate;
+using Autoease.Domain.AggregateModel.UserAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

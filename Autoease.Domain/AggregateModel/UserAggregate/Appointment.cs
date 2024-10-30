@@ -1,6 +1,6 @@
-using Autoease.Domain.Entities.SeedWork;
+using Autoease.Domain.AggregateModel.SeedWork;
 
-namespace Autoease.Domain.Entities.Aggregate;
+namespace Autoease.Domain.AggregateModel.UserAggregate;
 
 public sealed class Appointment : BaseEntity
 {
@@ -23,7 +23,7 @@ public sealed class Appointment : BaseEntity
     public Veichle Veichle { get; private set; } = null!;
     public decimal? Budget { get; private set; }
 
-    public void SetBudget(Veichle veichle, decimal budget)
+    internal void SetBudget(Veichle veichle, decimal budget)
     {
         decimal newBudget = 0;
 
@@ -33,6 +33,6 @@ public sealed class Appointment : BaseEntity
         Budget = newBudget;
     }
 
-    public void SetVeichle(Veichle veichle)
+    internal void SetVeichle(Veichle veichle)
        => Veichle = veichle;
 }

@@ -1,6 +1,6 @@
-using Autoease.Domain.Entities.SeedWork;
+using Autoease.Domain.AggregateModel.SeedWork;
 
-namespace Autoease.Domain.Entities.Aggregate;
+namespace Autoease.Domain.AggregateModel.UserAggregate;
 
 public sealed class Veichle : BaseEntity
 {

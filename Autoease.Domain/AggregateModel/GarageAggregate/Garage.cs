@@ -1,8 +1,7 @@
-using Autoease.Domain.Entities.SeedWork;
+using Autoease.Domain.AggregateModel.SeedWork;
 using Autoease.Domain.Enum;
-using Autoease.Domain.ValueObjects;
 
-namespace Autoease.Domain.Entities;
+namespace Autoease.Domain.AggregateModel.GarageAggregate;
 
 public sealed class GarageEntity : BaseEntity
 {
