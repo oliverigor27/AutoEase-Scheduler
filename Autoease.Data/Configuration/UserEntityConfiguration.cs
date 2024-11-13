@@ -35,9 +35,13 @@ public class UserEntityConfiguration : IEntityTypeConfiguration<UserEntity>
             .HasColumnName("user_last_name")
             .IsRequired();
 
-        builder.Property(user => user.Address)
-            .HasColumnName("user_address")
-            .IsRequired();
+        builder.OwnsOne(user => user.Address, user => {
+            user.Property(x => x.Street).IsRequired().HasMaxLength(64);
+            user.Property(x => x.PostalCode).IsRequired();
+            user.Property(x => x.City).IsRequired();
+            user.Property(x => x.State).IsRequired();
+            user.Property(x => x.Country).IsRequired();
+        }).HasNoKey();
         
         builder.Property(user => user.Created_At)
             .HasColumnName("created_at")
@@ -45,10 +49,9 @@ public class UserEntityConfiguration : IEntityTypeConfiguration<UserEntity>
 
         builder.HasMany<Veichle>()
             .WithOne()
-            .HasForeignKey();
+            .HasForeignKey(user => user.Id)
+            .IsRequired();
 
-        builder.HasMany<Appointment>()
-            .WithOne()
-            .HasForeignKey();
+        builder.Navigation(user => user.Veichle).UsePropertyAccessMode(PropertyAccessMode.Field);
     }
 }

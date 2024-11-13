@@ -1,3 +1,4 @@
+using System.Reflection;
 using Autoease.Data.Configuration;
 using Autoease.Domain.AggregateModel.GarageAggregate;
 using Autoease.Domain.AggregateModel.UserAggregate;
@@ -10,18 +11,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        new UserEntityConfiguration()
-            .Configure(modelBuilder.Entity<UserEntity>().ToTable("Users"));
-
-        new GarageEntityConfiguration()
-            .Configure(modelBuilder.Entity<GarageEntity>().ToTable("Garage"));
-
-        new AppointmentEntityConfiguration()
-            .Configure(modelBuilder.Entity<Appointment>());
-
-        new VeichleEntityConfiguration()
-            .Configure(modelBuilder.Entity<Veichle>());
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
     public DbSet<UserEntity> Users { get; set; } = null!;

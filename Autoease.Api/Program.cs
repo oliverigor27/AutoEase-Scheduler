@@ -8,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
+builder.AddDatabaseContext();
 builder.AddAutoeaseServices();
 
 builder.Services.Configure<AppDbContext>(
