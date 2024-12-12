@@ -31,7 +31,7 @@ public class VeichleEntityConfiguration : IEntityTypeConfiguration<Veichle>
             .HasColumnName("created_at")
             .IsRequired();
 
-        builder.HasOne<UserEntity>()
+        builder.HasOne<User>()
             .WithMany(user => user.Veichle)
             .HasForeignKey("user_id")
             .IsRequired();

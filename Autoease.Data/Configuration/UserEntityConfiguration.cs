@@ -4,12 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Autoease.Data.Configuration;
 
-public class UserEntityConfiguration : IEntityTypeConfiguration<UserEntity>
+public class UserEntityConfiguration : IEntityTypeConfiguration<User>
 {
-    public void Configure(EntityTypeBuilder<UserEntity> builder)
+    public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.HasKey(user => user.Id)
-            .HasName("user_id");
+        builder.HasKey(user => user.Id);
 
         builder.Property(user => user.UserIdCard)
             .HasColumnName("user_id_card")
@@ -36,11 +35,11 @@ public class UserEntityConfiguration : IEntityTypeConfiguration<UserEntity>
             .IsRequired();
 
         builder.OwnsOne(user => user.Address, user => {
-            user.Property(x => x.Street).IsRequired().HasMaxLength(64);
-            user.Property(x => x.PostalCode).IsRequired();
-            user.Property(x => x.City).IsRequired();
-            user.Property(x => x.State).IsRequired();
-            user.Property(x => x.Country).IsRequired();
+            user.Property(x => x.Street).HasColumnName($"user_{nameof(Address.Street)}").HasMaxLength(64);
+            user.Property(x => x.PostalCode).HasColumnName($"user_{nameof(Address.PostalCode)}").HasMaxLength(64);
+            user.Property(x => x.City).HasColumnName($"user_{nameof(Address.City)}").HasMaxLength(170);
+            user.Property(x => x.State).HasColumnName($"user_{nameof(Address.State)}").HasMaxLength(100);
+            user.Property(x => x.Country).HasColumnName($"user_{nameof(Address.Country)}").HasMaxLength(64);
         }).HasNoKey();
         
         builder.Property(user => user.Created_At)

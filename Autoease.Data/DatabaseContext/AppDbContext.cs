@@ -14,7 +14,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
-    public DbSet<UserEntity> Users { get; set; } = null!;
+    public DbSet<User> Users { get; set; } = null!;
     public DbSet<GarageEntity> Garages { get; set; } = null!;
     public DbSet<Appointment> Appointments { get; set; } = null!;
     public DbSet<Veichle> Veichles { get; set; } = null!;

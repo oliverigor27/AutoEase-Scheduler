@@ -2,11 +2,11 @@ using Autoease.Domain.SeedWork;
 
 namespace Autoease.Domain.AggregateModel.UserAggregate;
 
-public sealed class UserEntity : BaseEntity, IAggregateRoot
+public sealed class User : BaseEntity, IAggregateRoot
 {
-    private UserEntity() {}
+    private User() {}
 
-    public UserEntity(
+    internal User(
         string userIdCard, 
         string username, 
         string email, 
